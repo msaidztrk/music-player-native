@@ -1,0 +1,17 @@
+yarn create expo -t 
+yarn add -D prettier
+npx prettier --write .
+npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar expo-dev-client react-native-fast-image
+yarn add -D eslint eslint-plugin-react eslint-plugin-react-hooks
+yarn add -D @typescript-eslint/eslint-plugin 
+yarn add -D @typescript-eslint/eslint-parser 
+
+
+npm install react-native-fs --save
+
+npx expo install expo-blur
+
+npx expo start
+
+
+- to generate android folder: npx expo run:android
