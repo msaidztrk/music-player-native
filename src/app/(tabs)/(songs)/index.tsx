@@ -14,10 +14,10 @@ const SongsScreen = () => {
 
 	return (
 		<View style={defaultStyles.container}>
-			<ScrollView>
+			{/* <ScrollView> */}
 				<TrackList/>
 			
-			</ScrollView>
+			{/* </ScrollView> */}
 		</View>
 	)
 }

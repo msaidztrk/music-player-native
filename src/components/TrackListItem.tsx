@@ -13,7 +13,7 @@ export const TrackListItem = ({ track }: TrackListItemProps) => {
     const isActiveTrack = false
 
     return <TouchableHighlight>
-        <View>
+        <View style={styles.trackItemContainer}>
             <View>
                 <FastImage source={{
                     uri: track.image ?? unknownTrackImageUri,
