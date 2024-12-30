@@ -2,7 +2,8 @@ import { colors } from '@/constants/tokens'
 import { SplashScreen, Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { useCallback, useEffect, useState } from 'react'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context' 
+// import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 // Prevent splash screen auto-hide until we manually hide it
 SplashScreen.preventAutoHideAsync()
@@ -20,17 +21,21 @@ const App = () => {
     // Simulate loading data or assets
     setTimeout(() => {
       handleTrackPlayerLoaded()
-    }, 2000)  // Delay of 2 seconds to simulate loading
+    }, 2000)  // Delay of 2 seconds to simulate loading
   }, [handleTrackPlayerLoaded])
 
   if (!isReady) {
-    return null  // Optionally render a loading screen or spinner
+    return null  // Optionally render a loading screen or spinner
   }
 
   return (
     <SafeAreaProvider>
-      <RootNavigation />
-      <StatusBar style="auto" />
+      <SafeAreaView edges={['top']} style={{ flex: 1 }}> 
+      {/* <GestureHandlerRootView> */}
+        <RootNavigation />
+        <StatusBar style="auto" />
+        {/* </GestureHandlerRootView> */}
+      </SafeAreaView>
     </SafeAreaProvider>
   )
 }

@@ -5,49 +5,53 @@ import { StyleSheet, TouchableHighlight, View, Text } from "react-native"
 import FastImage from "react-native-fast-image"
 
 export type TrackListItemProps = {
-    track: { title: string, image?: string, artist?: string , artwork? : string }
+    track: { title: string, image?: string, artist?: string, artwork?: string }
 }
 
 export const TrackListItem = ({ track }: TrackListItemProps) => {
 
     const isActiveTrack = false
 
-    return <TouchableHighlight>
-        <View style={styles.trackItemContainer}>
-            <View>
-                <FastImage source={{
-                    uri: track.image ?? unknownTrackImageUri,
-                    priority: FastImage.priority.normal
-                }}
-
-                    style={{
-                        ...styles.trackArtworkImage,
-                        opacity: isActiveTrack ? 0.6 : 1
+    return (
+        
+        <TouchableHighlight>
+            <View style={styles.trackItemContainer}>
+                <View>
+                    <FastImage source={{
+                        uri: track.image ?? unknownTrackImageUri,
+                        priority: FastImage.priority.normal
                     }}
-                />
-            </View>
 
-            {/* Track title + artist */}
-            <View style={{ width: '100%' }}>
-                <Text numberOfLines={1}
-                    style={{
-                        ...styles.trackTitleText,
-                        color: isActiveTrack ? colors.primary : colors.text
-                    }}>
-                    {track.title}
-                </Text>
+                        style={{
+                            ...styles.trackArtworkImage,
+                            opacity: isActiveTrack ? 0.6 : 1
+                        }}
+                    />
+                </View>
 
-
-                {track.artist && (
+                {/* Track title + artist */}
+                <View style={{ width: '100%' }}>
                     <Text numberOfLines={1}
-                        style={styles.trackArtistText}>{track.artist}</Text>
-                )}
+                        style={{
+                            ...styles.trackTitleText,
+                            color: isActiveTrack ? colors.primary : colors.text
+                        }}>
+                        {track.title}
+                    </Text>
+
+
+                    {track.artist && (
+                        <Text numberOfLines={1}
+                            style={styles.trackArtistText}>{track.artist}</Text>
+                    )}
+
+                </View>
 
             </View>
 
-        </View>
+        </TouchableHighlight>
 
-    </TouchableHighlight>
+    )
 
 
 }

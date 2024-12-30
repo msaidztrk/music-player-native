@@ -1,4 +1,3 @@
-
 import { StackScreenWithSearchBar } from '@/constants/layout'
 import { defaultStyles } from '@/styles'
 import { Stack } from 'expo-router'
@@ -10,9 +9,9 @@ const SongsScreenLayout = () => {
 			<Stack>
 				<Stack.Screen
 					name="index"
-                    options={{
+					options={{
 						...StackScreenWithSearchBar,
-						headerTitle: 'Songs',
+						headerTitle: '',
 					}}
 				/>
 			</Stack>

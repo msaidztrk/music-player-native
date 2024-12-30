@@ -1,6 +1,7 @@
-import { FlatList, FlatListProps } from "react-native";
+import { FlatList, FlatListProps, View } from "react-native";
 import library from '@/assets/data/library.json'; // Assuming library is an array of track objects
 import { TrackListItem } from "./TrackListItem";
+import { utilsStyles } from "@/styles";
 
 // Define the type for a single track
 interface Track {
@@ -14,9 +15,14 @@ interface Track {
 
 export type TrackListProps = Partial<FlatListProps<Track>>;
 
+const ItemDivider = () => (
+  <View style={[utilsStyles.itemSeparator, { marginVertical: 9, marginLeft: 60 }]} />
+);
 export const TrackList = ({ ...TrackListProps }: TrackListProps) => {
   return (
     <FlatList
+      contentContainerStyle={{ paddingTop: 10, paddingBottom: 128 }}
+      ItemSeparatorComponent={ItemDivider}
       data={library as Track[]} // Cast the library as an array of `Track`
       keyExtractor={(item, index) => item.url || index.toString()} // Use `url` as the key or fallback to index
       renderItem={({ item: track }) => (

@@ -8,6 +8,7 @@ yarn add -D @typescript-eslint/eslint-parser
 
 
 npm install react-native-fs --save
+npx expo install react-native-gesture-handler
 
 npx expo install expo-blur
 
